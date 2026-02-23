@@ -26,10 +26,14 @@ const Index = () => {
     }, 1000);
 
     try {
-      const response = await fetch("https://auric.haloocom.in/baharain/make-call", {
+      const response = await fetch("https://hexaweb.haloocom.in/royal/make-call", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phoneNumber }),
+        body: JSON.stringify({
+          phoneNumber,
+          campaignId: "Inbound",
+          listId: "1",
+        }),
       });
 
       clearInterval(interval);
@@ -80,7 +84,7 @@ const Index = () => {
               Call Initiated!
             </h2>
             <p className="text-muted-foreground mb-8">
-              You will receive a call shortly to assist with your Hotel Bahrain booking.
+              You will receive a call from our AI assistant shortly.
             </p>
             <button
               onClick={resetForm}
@@ -95,10 +99,10 @@ const Index = () => {
             {/* Title */}
             <div className="text-center mb-8 animate-fade-in" style={{ animationDelay: "0.1s" }}>
               <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-                Book <span className="text-primary">Hotel Bahrain</span>
+                Connect with <span className="text-primary">Hexa AI</span>
               </h1>
               <p className="text-muted-foreground text-base md:text-lg max-w-md">
-                Experience luxury at Hotel Bahrain. Enter your phone number and our AI assistant will call you to complete your booking.
+                Enter your phone number and our AI assistant will call you right away.
               </p>
             </div>
 
@@ -111,7 +115,7 @@ const Index = () => {
               <div className="flex flex-col gap-4 mb-4">
                 <PhoneInput
                   international
-                  defaultCountry="BH"
+                  defaultCountry="IN"
                   value={phoneNumber}
                   onChange={setPhoneNumber}
                   className="w-full"
@@ -144,16 +148,6 @@ const Index = () => {
               {/* Disclaimer */}
               <p className="text-muted-foreground text-xs text-center">
                 By proceeding, you agree to receive a call from our AI assistant
-              </p>
-            </div>
-
-            {/* Hotel Info */}
-            <div
-              className="mt-8 text-center animate-fade-in"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <p className="text-muted-foreground text-sm">
-                🏨 Premium Accommodations • 24/7 Service • Best Rates Guaranteed
               </p>
             </div>
           </>
